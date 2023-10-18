@@ -1,0 +1,592 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+  min-height: calc(100vh - 597.2px);
+}
+
+.page {
+  min-height: calc(100vh - 597.2px);
+}
+nav {
+  /* height: ; */
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+.navbar ul {
+  margin: 0;
+  padding: 10px;
+  list-style-type: none;
+}
+.navbar ul li a {
+  transition: color 0.3s;
+}
+.navbar ul li a:hover {
+  color: lightgray;
+}
+
+.buyem {
+  scale: 3;
+  margin-left: 60px;
+}
+.products-img {
+  height: 200px;
+  object-fit: contain;
+}
+.img-hover {
+  position: absolute;
+  z-index: 1;
+}
+.relative {
+  position: relative;
+}
+.a-card {
+  width: 300px;
+  overflow: hidden;
+  height: 500px;
+}
+.a-card:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
+a {
+  color: red;
+}
+.fa {
+  font-size: 18px;
+}
+.add-cart-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background-color: transparent;
+  border: none;
+  z-index: 2;
+  color: darkgrey;
+}
+.add-cart-btn:hover {
+  color: black;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+.cart-icon {
+  position: relative;
+}
+.cart-number {
+  top: -12px;
+  right: -6px;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  background-color: red;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 20px;
+}
+@-webkit-keyframes sk-rotateplane {
+  0% {
+    -webkit-transform: perspective(120px);
+  }
+  50% {
+    -webkit-transform: perspective(120px) rotateY(180deg);
+  }
+  100% {
+    -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg);
+  }
+}
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+.add-cart-btn:active {
+  color: grey;
+}
+.card-container {
+  display: flex;
+}
+.loading-state {
+  margin: auto;
+}
+/* market page */
+#select-product {
+  padding: 5px;
+}
+
+.seachbar-container {
+  position: relative;
+}
+.searchbar {
+  margin: 20px 0;
+  width: 50%;
+  padding: 5px 5px 5px 75px;
+}
+.seachbar-container > button[type="button"] {
+  position: absolute;
+  bottom: 34%;
+  right: 25.5%;
+  background-color: transparent;
+  border: none;
+  color: grey;
+}
+.seachbar-container > button[type="button"]:active {
+  color: black;
+}
+.seachbar-container > button[type="submit"] {
+  position: absolute;
+  bottom: 34%;
+  left: 25%;
+  background-color: transparent;
+  border: none;
+  color: grey;
+}
+.seachbar-container > button[type="button"]:active,
+button[type="submit"]:active {
+  color: black;
+}
+
+/* login page */
+
+.login-container {
+  /* position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  margin: auto;
+  margin-top: 100px;
+  width: 700px;
+  height: 400px;
+  background-color: darkgray;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.block-container {
+  width: 80%;
+  padding: 100px 50px;
+}
+.block {
+  margin: 15px 0;
+  position: relative;
+}
+.block > input {
+  width: 100%;
+  margin: 0 0;
+  padding: 5px 0 5px 25px;
+}
+.login-icon {
+  position: absolute;
+  top: 38%;
+  height: 15px;
+  left: 5px;
+}
+
+.login-container > button {
+  height: 400px;
+  border: none;
+  width: 20%;
+  background-color: grey;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+.account-nav > li {
+  padding: 0 10px;
+}
+.bi,
+.bi-cart {
+  color: white;
+}
+
+/* cartcards component */
+.order-summary {
+  background-color: white;
+  width: 20%;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.order-summary > * {
+  margin: 20px 0;
+  font-size: 1.25rem;
+}
+.card-card-container {
+  margin: 0 30px;
+  width: 50%;
+  height: 100%;
+  background-color: white;
+}
+th,
+td {
+  padding: 30px;
+}
+.one-card:hover {
+  background-color: lightgrey;
+}
+.cart-image {
+  object-fit: cover;
+  height: 100px;
+  width: 100px;
+}
+.one-card {
+  border-bottom: 2px solid grey;
+}
+.cart-quantity {
+  position: relative;
+  left: 30%;
+
+  width: 120px;
+}
+
+.q-num {
+  border-radius: 20px;
+  background-color: lightgrey;
+  border: none;
+  padding: 10px;
+  height: 45px;
+}
+.q-btn1 {
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  left: 0;
+  top: 0%;
+  height: 45px;
+  border: none;
+  background-color: grey;
+  border-radius: 15px 0px 0px 15px;
+}
+.q-btn2 {
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  right: 0px;
+  top: 0%;
+  height: 45px;
+  border: none;
+  background-color: grey;
+  border-radius: 0 15px 15px 0;
+}
+/* footer */
+.footer {
+  padding: 50px;
+  background-color: black;
+  height: 500px;
+  width: 100%;
+  margin-top: 50px;
+  bottom: 0;
+}
+.footer {
+  color: white;
+}
+.footer-content-header {
+  border-bottom: 1px solid snow;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+}
+.footer a {
+  text-decoration: none;
+  list-style-type: none;
+  color: lightgrey;
+}
+.footer ul {
+  text-align: left;
+  list-style-type: none;
+  margin: 10px 0px;
+  padding: 0;
+}
+.footer-content .connect-with-us {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap;
+}
+.connect-with-us {
+  display: flex !important;
+  flex-direction: row !important;
+  margin-top: 15px;
+}
+.connect-with-us:hover {
+  cursor: pointer;
+}
+
+.social-icon {
+  margin: 10px 10px;
+  height: 30px;
+}
+/* account page */
+.user-image {
+  border-radius: 300px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* account page */
+.account-select {
+  padding: 10px;
+  width: 300px;
+  margin: auto;
+  margin: 12px;
+  background-color: white;
+  border-radius: 10px;
+}
+.account-select:hover {
+  background-color: gray;
+}
+.account-display {
+  background-color: none;
+  width: 600px;
+  margin: 0 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+}
+
+.account-icon {
+  width: 20px;
+}
+
+.container1 {
+  width: 500px;
+  margin: 10px 5px;
+  padding: 0 5px;
+}
+
+.items-in-cart {
+  color: grey;
+}
+.myaccount {
+  font-size: 20px;
+}
+/* pagination */
+.pagination img {
+  padding-top: 5px;
+  height: 20px;
+  transform: scaleX(-1);
+}
+.pagination .left {
+  transform: scaleX(1);
+}
+.pagination {
+  padding: 15px;
+  margin: 0 2px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+  text-decoration: none;
+}
+.pagination:hover {
+  cursor: pointer;
+  background-color: grey;
+}
+
+.products {
+}
+
+/* Home Page */
+.menwomen {
+  position: relative;
+}
+.men,
+.women {
+  position: absolute;
+  color: transparent;
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: white;
+  font-size: 10rem;
+  left: 20%;
+  font-weight: bold;
+}
+.women {
+  right: 15%;
+}
+.section-block,
+.section-block-men,
+.section-block-women {
+  position: relative;
+  width: 100%;
+  height: 30vh;
+  border: 2px solid white;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 10% 50%;
+}
+.section-block-men {
+  background-position: 10% 20%;
+  background-image: url("https://www.sz-mag.com/wp-content/uploads/2023/01/Rick-Owens_FW23-Mens_2023_Stylezeitgeist-001.jpg");
+}
+.section-block-women {
+  background-position: 10% 70%;
+  background-image: url("https://wwd.com/wp-content/uploads/2023/06/front-row-rick-owens-mens-spring-2024-paris002.jpg?crop=0px%2C104px%2C1365px%2C763px&resize=1000%2C563");
+}
+.section-block-men:hover {
+  background-position: 0;
+  transition: 0.5s ease-out;
+}
+.section-block-women:hover {
+  background-position: 20% 100%;
+  transition: 0.5s ease-out;
+}
+.section-block:hover {
+  background-position: 10% 60%;
+  transition: 0.5s ease-out;
+}
+.etc {
+  position: absolute;
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;
+  font-size: 5rem;
+  right: 15%;
+  font-weight: bold;
+}
+.electronicsfont {
+  left: 15%;
+  color: white;
+
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
+.jeweries {
+  background-image: url("https://i.pinimg.com/736x/5f/8b/02/5f8b02c6702d964846e8cdc1a5b7b0e8.jpg");
+}
+.electronics {
+  background-image: url("https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2022%2F03%2Frick-owens-spring-summer-2022-fogachine-fog-machine-coffee-table-mini-hand-held-objects-1.jpeg?cbr=1&q=90");
+}
+.others {
+  /* background-image: url("https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2022%2F03%2Frick-owens-spring-summer-2022-fogachine-fog-machine-coffee-table-mini-hand-held-objects-1.jpeg?cbr=1&q=90"); */
+}
+.account-order-content th,
+td {
+  padding: 10px 40px;
+}
+
+/* active */
+
+.active {
+  color: white;
+  background-color: black;
+  transition: 0.5s;
+}
+/* product detail */
+.product-detail {
+  width: 70%;
+  max-width: 70%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.product-detail img {
+  width: 300px;
+  margin: 0 30px;
+}
+.product-detai-detail {
+  background-color: none;
+  padding: 20px;
+}
+.product-detai-detail > div {
+  /* margin-bottom: 20px; */
+}
+
+.detali-btn {
+  margin-top: 30px;
+}
+.detali-btn > button {
+  margin: 0 10px;
+  padding: 5px 19px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+.detali-btn > button:active {
+  background-color: rgb(50, 50, 50);
+}
+
+.detail-option {
+  margin: 0 10px;
+  background-color: white;
+  border-radius: 5px;
+}
+.detail-option > div {
+  padding: 0 5px;
+  margin: 0 10px;
+  /* border-right: 2px solid black; */
+}
+
+.detail-option > select {
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+/* Home content */
+
+/* carousel */
+.carousel {
+  position: relative;
+}
+.carousel button,
+.carousel div,
+.dots {
+  position: absolute;
+}
+.carousel button img {
+  height: 60px;
+}
+.carousel-pre {
+  top: 45%;
+  left: 5%;
+}
+.carousel-next {
+  top: 45%;
+  right: 5%;
+}
+.carousel button {
+  opacity: 0.7;
+  color: white;
+  padding-bottom: 10px;
+  border: none;
+  background-color: transparent;
+}
+.carousel button:hover {
+  opacity: 1;
+  transition: 0.5s;
+}
+.carousel-img {
+  height: 100vh;
+}
+.left-carousel {
+  transform: rotate(0.5turn);
+}
+.dots {
+  bottom: 20px;
+  left: 48%;
+}
+.aDot {
+  height: 20px;
+  margin: 10px 20px;
+  opacity: 0.5;
+}
+.aDot:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+.activeDot {
+  opacity: 1;
+}
+
+.x {
+  opacity: 0.3;
+}
