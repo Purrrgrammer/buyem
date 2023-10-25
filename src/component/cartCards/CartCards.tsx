@@ -6,6 +6,7 @@ import {
   removeFromUserCart,
 } from "../../slices/account-slice/AccountSlice";
 import OrderSummary from "../ordersummary/OrderSummary";
+import { Link } from "react-router-dom";
 
 const CartCards = () => {
   const [cartTotal, setCartTotal] = useState<number>(0);
@@ -43,8 +44,15 @@ const CartCards = () => {
         <div className="d-flex align-items-center">
           <img className="cart-image" src={el.image} alt={el.title} />
           <div className="ps-4 d-flex flex-column">
-            <h5>{el?.title?.substring(0, 50)}</h5>
-            <div className="text-start text-black-50">{el?.category}</div>
+            <Link
+              to={`/product/${el.id}`}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <h5 className="link-to-hover">{el?.title?.substring(0, 50)}</h5>
+            </Link>
+            <div className="text-start text-black-50">
+              {el?.category.toUpperCase()}
+            </div>
           </div>
         </div>
       </td>
@@ -72,6 +80,11 @@ const CartCards = () => {
       </td>
       <td>$ {(el.price * el.quantity).toFixed(2)}</td>
     </tr>
+    //       <Link
+    //   to={`/product/${el.id}`}
+    //   style={{ textDecoration: "none", color: "black" }}
+    // >
+    // </Link>
   ));
 
   return (
@@ -83,6 +96,7 @@ const CartCards = () => {
           <th className="">Quantity</th>
           <th>Total</th>
         </tr>
+
         {mapCart}
       </table>
       <OrderSummary cartTotal={cartTotal} />

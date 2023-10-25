@@ -1,8 +1,10 @@
 import { useAppDispatch, useAppSelector } from "../../hooks";
+import { Product } from "../../model";
 import { addToUserCart } from "../../slices/account-slice/AccountSlice";
 import { Link } from "react-router-dom";
+type propType = { product: Product };
 
-const Card = ({ product }: any) => {
+const Card = ({ product }: propType) => {
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.account);
   const addCartHandler = () => {

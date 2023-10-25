@@ -23,10 +23,10 @@ const Carousel = () => {
   const setDotContent = (dotNumber: number) => {
     setContentIndex(dotNumber);
   };
-
   useEffect(() => {
     let numberofContent: number[] = [];
-    for (let i = 0; i < contentlimit.max; i++) {
+    for (let i = 0; i <= contentlimit.max; i++) {
+      console.log(i);
       numberofContent.push(i);
     }
     setDotNumber(numberofContent);

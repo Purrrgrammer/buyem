@@ -9,8 +9,8 @@ import { setMock, selectAllMock } from "../../slices/mock-slice/MockSlice";
 import { useSelector } from "react-redux";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { Card, Pagination, SearchBar } from "../../component";
-// import ProductDetail from "../../component/productDetail/ProductDetail";
 import { getDataFromLocalStorage } from "../../slices/account-slice/AccountSlice";
+import { Product } from "../../model";
 
 const MarketPlacePage = () => {
   const dispatch = useAppDispatch();
@@ -34,6 +34,8 @@ const MarketPlacePage = () => {
       }
       if (productsStatus === "failed") {
         console.log(productsError);
+        // lame
+        setPostPerPage(0);
       }
     };
     getData();
@@ -49,11 +51,11 @@ const MarketPlacePage = () => {
   //data passing in form of data = [many{}]
   // console.log("mockData", globalMockData);
   let content;
-  if (productsStatus === "loading") {
+  if (productsStatus === "pending") {
     content = <p>"Loading..."</p>;
   } else if (productsStatus === "succeeded") {
     content = globalMockData
-      .map((products: any, index: number) => (
+      .map((products: Product, index: number) => (
         <div
           className="d-flex justify-content-center text-center center-block col-xl-3 col-lg-4 col-md-4 mt-2"
           key={index}
@@ -65,11 +67,9 @@ const MarketPlacePage = () => {
   } else if (productsStatus === "failed") {
     content = <div className="loading-state">{productsError}</div>;
   }
-
   useEffect(() => {
     dispatch(getDataFromLocalStorage());
   }, []);
-
   return (
     <>
       <SearchBar />
@@ -78,8 +78,8 @@ const MarketPlacePage = () => {
         <Pagination
           postPerPage={postPerPage}
           totalPosts={globalMockData.length}
-          setCurrentPage={setCurrentPage}
           currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
         />
       </div>
     </>

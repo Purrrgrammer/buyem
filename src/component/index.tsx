@@ -4,7 +4,7 @@ import AccountPageDetail from "./moreaccountpage/AccountPageDetail";
 import Pagination from "./pagination/Pagination";
 import BestSeller from "./BestSeller/BestSeller";
 import SearchBar from "./searchbar/SearchBar";
-import Carousel from "./homecontent/HomeContent";
+import Carousel from "./carousel/Carousel";
 
 export {
   HomeDisplay,

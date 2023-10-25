@@ -6,10 +6,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   HomePage,
   Login,
-  AboutPage,
+  ArticlePage,
   MarketPlacePage,
   AccountPage,
   DetailPage,
+  DetailArticlePage,
 } from "./pages/index.tsx";
 import { store } from "./store/index.tsx";
 import { Provider } from "react-redux";
@@ -28,8 +29,8 @@ const router = createBrowserRouter([
     element: <MarketPlacePage />,
   },
   {
-    path: "/about",
-    element: <AboutPage />,
+    path: "/article",
+    element: <ArticlePage />,
   },
   {
     path: "/login",
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/product/:productId",
     element: <DetailPage />,
+  },
+  {
+    path: "/article/:articleId",
+    element: <DetailArticlePage />,
   },
 ]);
 

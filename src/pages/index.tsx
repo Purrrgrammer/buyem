@@ -2,6 +2,15 @@ import AccountPage from "./accountpage/AccountPage";
 import HomePage from "./homepage/HomePage";
 import Login from "./loginpage/LoginPage";
 import MarketPlacePage from "./marketplace/MarketPlacePage";
-import AboutPage from "./aboutpage/AboutPage";
+import ArticlePage from "./articlepage/ArticlePage";
 import DetailPage from "./detailpage/DetailPage";
-export { HomePage, AboutPage, MarketPlacePage, Login, AccountPage, DetailPage };
+import DetailArticlePage from "./detailarticle/DetailArticlePage";
+export {
+  HomePage,
+  ArticlePage,
+  MarketPlacePage,
+  Login,
+  AccountPage,
+  DetailPage,
+  DetailArticlePage,
+};

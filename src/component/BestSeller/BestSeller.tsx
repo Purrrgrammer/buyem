@@ -32,25 +32,29 @@ const BestSeller = () => {
     dispatch(setMock(products));
   }, [products]);
   const averageSales =
-    globalMockData.reduce((pre, cur) => pre + cur.rating.count, 0) /
-    products.length;
-  console.log(averageSales);
+    globalMockData.reduce(
+      (pre: number, cur: Product) => pre + cur.rating.count,
+      0
+    ) / products.length;
+  // console.log(averageSales);
   const bestSeller = globalMockData
     .filter((el: Product) => el.rating!.count > averageSales)
+    .map((products: Product, index: number) => (
+      <div
+        className="d-flex justify-content-center text-center center-block col-xl-3 col-lg-4 col-md-4 mt-2"
+        key={index}
+      >
+        <Card key={products.id} product={products} />
+      </div>
+    ))
     .slice(0, 8);
-  let ourPicks;
-  ourPicks = bestSeller.map((products: Product, index: number) => (
-    <div
-      className="d-flex justify-content-center text-center center-block col-xl-3 col-lg-4 col-md-4 mt-2"
-      key={index}
-    >
-      <Card key={products.id} product={products} />
-    </div>
-  ));
+
   return (
     <div>
-      <h2 className="m-4">Our Picks</h2>
-      <div className="row mx-4">{ourPicks}</div>
+      <h1 className="m-4">Our Picks</h1>
+      <div className="container">
+        <div className="row  mx-4">{bestSeller}</div>
+      </div>
     </div>
   );
 };

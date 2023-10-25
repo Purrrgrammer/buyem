@@ -22,9 +22,7 @@ export function Login() {
   return (
     <div className="page">
       {loginStatus ? (
-        <div className="my-4">
-          <h1>Successful Login</h1>
-        </div>
+        <h1 className="login-text">Successfully Login</h1>
       ) : (
         <form
           onSubmit={handleOnSubmit}
@@ -50,7 +48,7 @@ export function Login() {
               />
             </div>
           </div>
-          <button type="submit">Login</button>
+          <button type="submit">LOGIN</button>
         </form>
       )}
     </div>

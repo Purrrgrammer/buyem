@@ -14,24 +14,8 @@ export const UsersList: User[] = [
       billingAddress: "Saimai Roag",
       shippingAddress: "Donmuang Road",
     },
-    orders: [
-      {
-        orderNumber: 1,
-        orderId: "#1231244asd",
-        orderDate: "12/14/23",
-      },
-      {
-        orderNumber: 2,
-        orderId: "#1231244asd",
-        orderDate: "12/14/23",
-      },
-      {
-        orderNumber: 3,
-        orderId: "#1231244asd",
-        orderDate: "12/14/23",
-      },
-    ],
-    birthDate: "12/12/12",
+    orders: [],
+    birthDate: "12/12/2012",
     country: "USA",
   },
   {
@@ -51,21 +35,24 @@ export const UsersList: User[] = [
     orders: [
       {
         orderNumber: 1,
-        orderId: "#1231244asd",
-        orderDate: "12/14/23",
+        orderId: "xxxxxxxxxx",
+        orderDate: "12/14/2023",
+        orderInfo: [],
       },
       {
         orderNumber: 2,
-        orderId: "#1231244asd",
-        orderDate: "12/14/23",
+        orderId: "yyyyyyyyy",
+        orderDate: "12/14/2023",
+        orderInfo: [],
       },
       {
         orderNumber: 3,
-        orderId: "#1231244asd",
-        orderDate: "12/14/23",
+        orderId: "zzzzzzzzz",
+        orderDate: "12/14/2023",
+        orderInfo: [],
       },
     ],
-    birthDate: "12/12/12",
+    birthDate: "12/12/2012",
     country: "Thailand",
   },
 ];

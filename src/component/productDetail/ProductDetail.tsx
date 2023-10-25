@@ -7,8 +7,10 @@ import {
   productQuantity,
 } from "../../base";
 import { addToUserCart } from "../../slices/account-slice/AccountSlice";
+import { Product } from "../../RTK";
+type propType = { displayDetail: Product | any };
 
-const ProductDetail = ({ displayDetail }: any) => {
+const ProductDetail = ({ displayDetail }: propType) => {
   const dispatch = useAppDispatch();
   const [quantitytoCart, setQuantitytoCart] = useState<number>(1);
   const [size, setSize] = useState("none");
@@ -60,7 +62,7 @@ const ProductDetail = ({ displayDetail }: any) => {
   return (
     <>
       {displayDetail && (
-        <div className="product-detail d-flex justify-content-center">
+        <div className="product-detail d-flex justify-content-center ">
           <img src={displayDetail.image} alt={displayDetail.title} />
           <div className="product-detai-detail d-flex flex-column justify-content-between">
             <div>

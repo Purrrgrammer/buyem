@@ -23,7 +23,7 @@ const Navbar = () => {
           <a href={`/marketplace`}>Market Place</a>
         </li>
         <li>
-          <a href={`/about`}>About</a>
+          <a href={`/article`}>Article</a>
         </li>
         <div className="account-nav d-flex justify-content-center align-items-center">
           <li>
@@ -45,7 +45,7 @@ const Navbar = () => {
               </svg>
               <div className="cart-number">
                 {JSON.parse(localStorage.getItem("userCart")!)?.reduce(
-                  (acc, cur) => {
+                  (acc: number, cur: Storage) => {
                     return acc + cur.quantity;
                   },
                   0

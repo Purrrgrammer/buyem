@@ -51,9 +51,12 @@ const productsSlice = createSlice({
       });
   },
 });
-export const selectAllProducts = (state: any) => state.products.products;
-export const getProductsStatus = (state: any) => state.products.status;
-export const getProductsError = (state: any) => state.products.error;
+export const selectAllProducts = (state: { products: inistate }) =>
+  state.products.products;
+export const getProductsStatus = (state: { products: inistate }) =>
+  state.products.status;
+export const getProductsError = (state: { products: inistate }) =>
+  state.products.error;
 export const { success } = productsSlice.actions;
 export default productsSlice.reducer;
 //immer js > use immer > not mutating the state (copy) beside spread

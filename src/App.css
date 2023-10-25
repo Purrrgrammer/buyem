@@ -164,10 +164,11 @@ button[type="submit"]:active {
   left: 50%;
   transform: translate(-50%, -50%); */
   margin: auto;
-  margin-top: 100px;
+  margin-top: 11%;
+  margin-bottom: 11%;
   width: 700px;
   height: 400px;
-  background-color: darkgray;
+  background-color: white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .block-container {
@@ -194,7 +195,7 @@ button[type="submit"]:active {
   height: 400px;
   border: none;
   width: 20%;
-  background-color: grey;
+  background-color: gray;
   color: white;
   font-size: 20px;
   font-weight: bold;
@@ -229,16 +230,19 @@ th,
 td {
   padding: 30px;
 }
+.one-card {
+  border-bottom: 2px solid grey;
+}
 .one-card:hover {
   background-color: lightgrey;
+}
+.link-to-hover:hover {
+  color: whitesmoke;
 }
 .cart-image {
   object-fit: cover;
   height: 100px;
   width: 100px;
-}
-.one-card {
-  border-bottom: 2px solid grey;
 }
 .cart-quantity {
   position: relative;
@@ -246,7 +250,6 @@ td {
 
   width: 120px;
 }
-
 .q-num {
   border-radius: 20px;
   background-color: lightgrey;
@@ -360,6 +363,10 @@ td {
   width: 500px;
   margin: 10px 5px;
   padding: 0 5px;
+}
+.container1 > div {
+  margin: 10px 0;
+  font-weight: 400;
 }
 
 .items-in-cart {
@@ -484,9 +491,7 @@ td {
 .product-detail {
   width: 70%;
   max-width: 70%;
-  margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin: 10% auto;
 }
 .product-detail img {
   width: 300px;
@@ -589,4 +594,34 @@ td {
 
 .x {
   opacity: 0.3;
+}
+/* article */
+
+.article a {
+  text-decoration: none;
+  color: black;
+  text-align: left;
+}
+.article-content {
+  border: 1px solid lightgray;
+  margin: 20px auto;
+  padding: 10px;
+}
+.article-content > div > div {
+  margin: 10px 0;
+}
+
+.article img {
+  object-fit: cover;
+  height: 300px;
+  width: 500px;
+}
+
+.article-detail > img {
+  object-fit: cover;
+  height: 1000px;
+}
+
+.login-text {
+  margin-top: 18%;
 }

@@ -27,5 +27,4 @@ const HomeDisplay = () => {
     </div>
   );
 };
-
 export default HomeDisplay;

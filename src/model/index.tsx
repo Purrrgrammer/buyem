@@ -2,8 +2,9 @@ export interface User {
   userId: number | undefined;
   userPassword: string;
   userCart: Product[];
-  orders: Orders[];
+  orders: Orders[] | undefined;
   localCart?: any;
+  localOrders?: Orders[];
   loginState: boolean;
   userEmail: string;
   fullname: string;
@@ -32,6 +33,7 @@ export interface Orders {
   orderNumber: number;
   orderId: string;
   orderDate: string;
+  orderInfo?: Product[];
 }
 // for extent
 export interface PersonalInfo {

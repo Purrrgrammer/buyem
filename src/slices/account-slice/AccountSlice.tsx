@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Product, User } from "../../model";
 import { UsersList } from "../../users_list";
+import moment from "moment";
 const initialState: User = {
   loginState: false,
   userName: localStorage.getItem("userName") || "default",
@@ -100,12 +101,15 @@ const accountSlice = createSlice({
       if (localStorage.getItem("userCart")) {
         state.userCart = JSON.parse(localStorage.getItem("userCart")!);
       }
+      if (localStorage.getItem("newOrders")) {
+        state.orders = JSON.parse(localStorage.getItem("newOrders")!);
+      }
     },
-    setAccount: (state) => {
+    setAccount: () => {
       const result = JSON.parse(localStorage.getItem("currentUser")!);
       return result;
     },
-    login: (state, action) => {
+    login: (_, action) => {
       const authorized = UsersList.some(
         (el) =>
           el.userName === action.payload.userName &&
@@ -117,6 +121,7 @@ const accountSlice = createSlice({
         );
         localStorage.setItem("currentUser", JSON.stringify(changetoThisUser));
         const result = JSON.parse(localStorage.getItem("currentUser")!);
+        // state = result;
         return result;
       } else {
         alert(`Please Login Again`);
@@ -124,14 +129,85 @@ const accountSlice = createSlice({
     },
     setLogout: (state) => {
       localStorage.removeItem("currentUser");
-      state = defaultState;
+      state === defaultState;
       alert("you are logged out");
+      window.location.reload();
+    },
+    checkout: (state, action) => {
+      const randomId = (maxOrderIDlength: number = 10) => {
+        return Math.random()
+          .toString(36)
+          .substring(2, maxOrderIDlength + 2);
+      };
+      const currentDate = moment().format("DD/MM/YYYY");
+      // from above is OK
+      const newCheckout = action.payload;
+      const ordersFromLocal = localStorage.getItem("newOrders");
+      if (!ordersFromLocal) {
+        const firstOrder = {
+          orderNumber: 1,
+          orderId: randomId(), //always unique
+          orderDate: currentDate,
+          orderInfo: newCheckout,
+        };
+        state.orders = [firstOrder];
+        localStorage.setItem("newOrders", JSON.stringify(state.orders));
+      } else {
+        const prevOrder = JSON.parse(localStorage.getItem("newOrders")!);
+        const newOrderNumber = prevOrder[prevOrder.length - 1].orderNumber + 1;
+        const findOrderIDofSelected = state.orders?.find(
+          (el) => el.orderId === newCheckout.orderId
+        );
+        const newandOldOrders = {
+          orderNumber: newOrderNumber,
+          orderId: findOrderIDofSelected ? randomId() : randomId(),
+          orderDate: currentDate,
+          orderInfo: newCheckout,
+        };
+        const newerOrder = [...prevOrder, newandOldOrders];
+        state.orders = newerOrder;
+        localStorage.setItem("newOrders", JSON.stringify(state.orders));
+      }
+    },
+    checkoutOG: (state, action) => {
+      // items = local
+      if (localStorage.getItem("newOrders")) {
+        state.orders = JSON.parse(localStorage.getItem("newOrders")!);
+      }
+      const newCheckout = action.payload;
+      const duplicateOrderID = state.orders?.find(
+        (el) => el.orderId === newCheckout.orderId
+      );
+      const randomId = (maxOrderIDlength: number = 10) => {
+        return Math.random()
+          .toString(36)
+          .substring(2, maxOrderIDlength + 2);
+      };
+      const currentDate = moment().format("DD/MM/YYYY");
+
+      if (!localStorage.getItem("userCart")) {
+        console.log("add items in local");
+      }
+      const newOrder = {
+        orderNumber:
+          state.orders?.length !== 0
+            ? state.orders![state.orders!.length - 1].orderNumber + 1
+            : 1,
+        orderId: duplicateOrderID ? randomId() : randomId(),
+        orderDate: currentDate,
+        orderInfo: newCheckout,
+      };
+      const previousOrders = state.orders!;
+      const updatedOrders = [...previousOrders, newOrder];
+      state.orders = updatedOrders;
+      localStorage.setItem("newOrders", JSON.stringify(state.orders));
+      localStorage.removeItem("userCart");
       window.location.reload();
     },
   },
 });
 
-export const selectAccount = (state: any) => state.account;
+export const selectAccount = (state: { account: User }) => state.account;
 export default accountSlice.reducer;
 export const {
   addToUserCart,
@@ -140,31 +216,6 @@ export const {
   setAccount,
   setLogout,
   login,
+  checkout,
+  checkoutOG,
 } = accountSlice.actions;
-
-/*cart index
-      const itemsIndex= state.userCart.findIndex(item=>item.id ===action.payload.id)
-      if(itemIndex >=0){
-        state.userCart[itemIndex].cartQuantity +=1
-      }else{const tempProduct ={action.payload,cartQuantity:1}
-    state.userCart.push(tempProduct)
-    }
-
-
-
-    // problem
-    addToCartByAmount: (state, action) => {
-      // const extractItem = JSON.parse(localStorage.getItem("userCart")).find(
-      //   (el) => el.id === action.payload.product.id
-      // );
-      // console.log(extractItem.quantity + parseInt(action.payload.quantity));
-      // extractItem.quantity + parseInt(action.payload.quantity);
-      // const newData = JSON.parse(localStorage.getItem("userCart")).filter(
-      //   (el) => el.id !== action.payload.product.id
-      // );
-      // console.log(extractItem);
-      // const result = [...newData, extractItem];
-      // console.log(result);
-      // localStorage.setItem("userCart", JSON.stringify(result));
-    },
-      */

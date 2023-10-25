@@ -7,9 +7,8 @@ const mockSlice = createSlice({
   name: "mock",
   initialState,
   reducers: {
-    setMock: (state, action: PayloadAction<Product[]>) => {
-      console.log(action.payload);
-      return action.payload; // or === return action.payload
+    setMock: (_, action: PayloadAction<Product[]>) => {
+      return action.payload;
     },
   },
 });

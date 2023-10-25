@@ -3,19 +3,26 @@ import { footerContent } from "../../base";
 const Footer = () => {
   return (
     <div className="footer d-flex justify-content-between">
-      {Object.keys(footerContent).map((value) => {
+      {Object.keys(footerContent).map((value, index) => {
         return (
-          <div>
+          <div key={index}>
             <div className="footer-content-header text-start fw-semibold">
               {value.toUpperCase()}
             </div>
             {value === "socialmedia"
-              ? footerContent[value].map((val: string) => (
-                  <img className="social-icon " src={val} alt="" />
+              ? footerContent[value].map((val, index) => (
+                  <a href={val.link}>
+                    <img
+                      className="social-icon "
+                      src={val.url}
+                      alt=""
+                      key={index}
+                    />
+                  </a>
                 ))
               : footerContent[value as keyof typeof footerContent].map(
-                  (val: string) => (
-                    <ul>
+                  (val: any, index) => (
+                    <ul key={index}>
                       <li>
                         <a href="">{val}</a>
                       </li>
@@ -25,7 +32,14 @@ const Footer = () => {
           </div>
         );
       })}
-      {/* {footerHead.map((el) => (
+    </div>
+  );
+};
+
+export default Footer;
+
+{
+  /* {footerHead.map((el) => (
         <div
           className={`footer-container ${
             el !== "about" && "legal" && "support"
@@ -56,9 +70,5 @@ const Footer = () => {
                 ))}
           </ul>
         </div>
-      ))} */}
-    </div>
-  );
-};
-
-export default Footer;
+      ))} */
+}

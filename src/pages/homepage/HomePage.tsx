@@ -1,4 +1,3 @@
-import { useAppDispatch } from "../../hooks";
 import { HomeDisplay, BestSeller, Carousel } from "../../component";
 
 const HomePage = () => {
