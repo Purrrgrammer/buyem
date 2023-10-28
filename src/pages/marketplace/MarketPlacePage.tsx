@@ -57,7 +57,7 @@ const MarketPlacePage = () => {
     content = globalMockData
       .map((products: Product, index: number) => (
         <div
-          className="d-flex justify-content-center text-center center-block col-xl-3 col-lg-4 col-md-4 mt-2"
+          className="d-flex justify-content-center text-center center-block col-xl-3 col-lg-4 col-md-6 mt-2"
           key={index}
         >
           <Card key={products.id} product={products} />
@@ -74,7 +74,7 @@ const MarketPlacePage = () => {
     <>
       <SearchBar />
       <div className="page container">
-        <div className="row mx-4">{content}</div>
+        <div className="row mx-2">{content}</div>
         <Pagination
           postPerPage={postPerPage}
           totalPosts={globalMockData.length}

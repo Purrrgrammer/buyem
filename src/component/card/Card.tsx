@@ -2,9 +2,8 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import { Product } from "../../model";
 import { addToUserCart } from "../../slices/account-slice/AccountSlice";
 import { Link } from "react-router-dom";
-type propType = { product: Product };
 
-const Card = ({ product }: propType) => {
+const Card = ({ product }: { product: Product }) => {
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.account);
   const addCartHandler = () => {
@@ -22,7 +21,7 @@ const Card = ({ product }: propType) => {
         style={{ textDecoration: "none", color: "black" }}
       >
         <div
-          className="a-card d-flex flex-column justify-content-around"
+          className="a-card px-4 d-flex flex-column justify-content-around"
           key={product.id}
         >
           <img
@@ -30,7 +29,7 @@ const Card = ({ product }: propType) => {
             src={product.image}
             alt={product.title}
           />
-          <div className="mx-4">
+          <div className="">
             <h4 className="">{product.title.substring(0, 70)}</h4>
             <p className="">{product.description.substring(0, 100)}</p>
           </div>

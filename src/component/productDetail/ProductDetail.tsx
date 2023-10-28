@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../hooks";
 import {
   clothingSize,
@@ -17,7 +17,9 @@ const ProductDetail = ({ displayDetail }: propType) => {
   const anyHandler = (e: any) => {
     setSize(e.target.value);
   };
-
+  useEffect(() => {
+    console.log(quantitytoCart);
+  }, [quantitytoCart]);
   const onChangeQuantitylHandler = (e: any) => {
     setQuantitytoCart(e.target.value);
   };
@@ -81,7 +83,7 @@ const ProductDetail = ({ displayDetail }: propType) => {
               <h3>{displayDetail.price} $</h3>
             </div>
             <div className="text-start">{displayDetail.description}</div>
-            <div className="detali-btn d-flex justify-content-center">
+            <div className="detali-btn d-flex justify-content-end">
               <div className="detail-option d-flex align-items-center p-3">
                 <div>{"Size".toUpperCase()}</div>
                 {sizeOption}

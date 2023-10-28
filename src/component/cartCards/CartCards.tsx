@@ -43,12 +43,14 @@ const CartCards = () => {
       <td>
         <div className="d-flex align-items-center">
           <img className="cart-image" src={el.image} alt={el.title} />
-          <div className="ps-4 d-flex flex-column">
+          <div className="ps-4 d-flex flex-column ">
             <Link
               to={`/product/${el.id}`}
               style={{ textDecoration: "none", color: "black" }}
             >
-              <h5 className="link-to-hover">{el?.title?.substring(0, 50)}</h5>
+              <h5 className="link-to-hover text-left">
+                {el?.title?.substring(0, 50)}
+              </h5>
             </Link>
             <div className="text-start text-black-50">
               {el?.category.toUpperCase()}
@@ -56,7 +58,7 @@ const CartCards = () => {
           </div>
         </div>
       </td>
-      <td>$ {el.price}</td>
+      <td>{`$ ${el.price}`}</td>
       <td>
         <div className="cart-quantity">
           <button
@@ -96,7 +98,6 @@ const CartCards = () => {
           <th className="">Quantity</th>
           <th>Total</th>
         </tr>
-
         {mapCart}
       </table>
       <OrderSummary cartTotal={cartTotal} />

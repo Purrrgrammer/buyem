@@ -7,10 +7,12 @@ const DetailArticlePage = () => {
 
   return (
     <div className="article-detail d-flex flex-column justify-content-center ">
-      <img src={fromArticleID?.thumbnail} alt="" />
-      <div className="p-5">
+      <div className="article-img-container">
+        <img src={fromArticleID?.thumbnail} alt="" />
+      </div>
+      <div className="article-detail-content p-5">
         <h2>{fromArticleID?.header}</h2>
-        {fromArticleID?.content}
+        <div className="text-start">{fromArticleID?.content}</div>
       </div>
     </div>
   );

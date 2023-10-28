@@ -58,7 +58,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Provider store={store}>
       <Navbar />
-      <RouterProvider router={router} />
+      <RouterProvider  router={router} />
       <Footer />
     </Provider>
   </React.StrictMode>

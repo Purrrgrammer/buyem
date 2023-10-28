@@ -76,11 +76,13 @@ export const AccountPageDetail = ({ account }: propType) => {
     case "Orders":
       acccontent = ordersContent;
       break;
-    case "Favorite":
-      // acccontent = favoriteContent;
+    case "Favorites":
+      acccontent = <h5 style={{ marginTop: "70%" }}>coming soon....</h5>;
       break;
     default:
-      acccontent = `" Welcome, ${account.fullname} "`;
+      acccontent = (
+        <h5 style={{ marginTop: "30%" }}>" Welcome, {account.fullname} ! "</h5>
+      );
   }
   return (
     <>

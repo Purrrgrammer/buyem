@@ -5,10 +5,11 @@
 }
 
 .page {
+  width: 100%;
   min-height: calc(100vh - 597.2px);
 }
 nav {
-  /* height: ; */
+  width: 100%;
 }
 .navbar a {
   color: white;
@@ -122,6 +123,8 @@ a {
 /* market page */
 #select-product {
   padding: 5px;
+  border: 0;
+  border-bottom: 2px solid black;
 }
 
 .seachbar-container {
@@ -236,6 +239,9 @@ td {
 .one-card:hover {
   background-color: lightgrey;
 }
+.link-to-hover {
+  text-align: start;
+}
 .link-to-hover:hover {
   color: whitesmoke;
 }
@@ -246,8 +252,6 @@ td {
 }
 .cart-quantity {
   position: relative;
-  left: 30%;
-
   width: 120px;
 }
 .q-num {
@@ -385,7 +389,7 @@ td {
   transform: scaleX(1);
 }
 .pagination {
-  padding: 15px;
+  padding: 10px 15px;
   margin: 0 2px;
   border-radius: 5px;
   background-color: transparent;
@@ -479,7 +483,9 @@ td {
 td {
   padding: 10px 40px;
 }
-
+td {
+  text-wrap: nowrap;
+}
 /* active */
 
 .active {
@@ -491,7 +497,8 @@ td {
 .product-detail {
   width: 70%;
   max-width: 70%;
-  margin: 10% auto;
+  margin: auto;
+  padding: 150px 0;
 }
 .product-detail img {
   width: 300px;
@@ -540,9 +547,9 @@ td {
 /* carousel */
 .carousel {
   position: relative;
+  margin: auto;
 }
 .carousel button,
-.carousel div,
 .dots {
   position: absolute;
 }
@@ -569,14 +576,22 @@ td {
   transition: 0.5s;
 }
 .carousel-img {
-  height: 100vh;
+  object-fit: cover;
+  max-width: 100%;
+  height: 800px;
+}
+.carousel-img-container {
+  width: 100%;
+  overflow: hidden;
+  height: 800px;
 }
 .left-carousel {
   transform: rotate(0.5turn);
 }
 .dots {
   bottom: 20px;
-  left: 48%;
+  /* xl48 */
+  left: 45%;
 }
 .aDot {
   height: 20px;
@@ -607,6 +622,14 @@ td {
   margin: 20px auto;
   padding: 10px;
 }
+.filter-option > div {
+  text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+  transition: text-decoration-color 0.7s;
+}
+.filter-option > div:hover {
+  cursor: pointer;
+  text-decoration: underline 0.15em rgba(0, 0, 0, 1);
+}
 .article-content > div > div {
   margin: 10px 0;
 }
@@ -617,11 +640,21 @@ td {
   width: 500px;
 }
 
-.article-detail > img {
-  object-fit: cover;
-  height: 1000px;
+.article-img-container {
+  object-fit: contain;
+  object-position: center;
+  padding: 50px;
+}
+.article-img-container > img {
+  height: 500px;
+}
+.article-detail-content {
+  margin: 0 350px;
 }
 
 .login-text {
-  margin-top: 18%;
+  padding: 200px 0 200px 0;
+}
+.login-message {
+  padding: 90px 0 80px 0;
 }

@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { loginIcon, passwordIcon } from "../../assets/login/asset.js";
 import { useAppDispatch, useAppSelector } from "../../hooks/index.js";
 import { login } from "../../slices/account-slice/AccountSlice.js";
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
+  const navigate = useNavigate();
   const loginStatus = useAppSelector((state) => state.account.loginState);
   const dispatch = useAppDispatch();
   const handleOnSubmit = () => {
@@ -19,6 +21,11 @@ export function Login() {
     setLoginInput({ ...loginInput, [e.target.name]: e.target.value });
     console.log(loginInput);
   };
+  useEffect(() => {
+    if (loginStatus) {
+      navigate("/");
+    }
+  }, [loginStatus]);
   return (
     <div className="page">
       {loginStatus ? (

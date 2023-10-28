@@ -16,7 +16,7 @@ export const accountpage = [
     icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAZ5JREFUSEvFlutRw0AMhJVKoBSoBKgEqASoBDoBKoHZjDezKHrc2WTsmfxxzvq0ep0OttNz2IlrW8DXZobfxxrn14ABezGzmwX4ZWYPsw7MgAG8M7OnRCGUwwE40j6j4EcHhPHXxbo6wvdvnQMd2APBgrJbkRRFgg48Z9IzMPKHPMJo9EAtjGpYcRaO3ssHqQMe7AsHNvAxIFdJuL2qzMafAlQwVL433s6EFcoRAY0a4MfaUHBWQFGeRlRF6UIhHu1VYIqv+jRSBUVwjH2uNdKCcQBGNUxRQcFo1d8sLrZcC0YkRvOZgbXtfqTny1BrCioHYC+bZCd1ZrYKzBxFBaX5Yy2wM/4NTIgvKPY5R+iZuq2KVZ32PManXo0A+07YFOpRMOaB7/1hsOYnmtWVYn9eB1PYTiiez5EBvwwHFpEPdVYLeH866y+JaMxFk6tSPDJOw52LfVtNrgi86VrU/FSD43u5r3EeN46/MjlYpheBzoFssWiB/LBbfbwDul16+EWWPd/DuhZdfL316nnfclRW4T/7bybUU4a7w7uBfwEkFZYfDrNR3gAAAABJRU5ErkJggg==",
   },
   {
-    name: "Favorite",
+    name: "Favorites",
     icon: "https://cdn-icons-png.flaticon.com/256/1077/1077035.png",
   },
 ];
@@ -27,14 +27,6 @@ export const electronicsSize = "OS";
 //  for footer
 // About
 export const footerHead = ["about", "support", "legal", "connect with us"];
-// export const about = ["This Project", "carreer"];
-// export const support = ["This Project", ""];
-// export const legal = [
-//   "Terms & Condition",
-//   "Privacy Policy",
-//   "Legal Notice",
-//   "Cookies policy",
-// ];
 
 export const footerContent = {
   about: ["This Project", "Carreer"],
@@ -95,7 +87,7 @@ export const carouselContent = [
     content: "loremdsfakolsdjfaklsdgjsdaf",
   },
 ];
-
+// from API
 export const article = [
   {
     id: 1,
@@ -139,3 +131,12 @@ export const article = [
     url: "3",
   },
 ];
+
+// export const about = ["This Project", "carreer"];
+// export const support = ["This Project", ""];
+// export const legal = [
+//   "Terms & Condition",
+//   "Privacy Policy",
+//   "Legal Notice",
+//   "Cookies policy",
+// ];

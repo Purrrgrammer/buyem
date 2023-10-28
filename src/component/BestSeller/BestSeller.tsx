@@ -41,7 +41,7 @@ const BestSeller = () => {
     .filter((el: Product) => el.rating!.count > averageSales)
     .map((products: Product, index: number) => (
       <div
-        className="d-flex justify-content-center text-center center-block col-xl-3 col-lg-4 col-md-4 mt-2"
+        className="d-flex justify-content-center text-center center-block col-xl-3 col-lg-4 col-md-6 mt-2"
         key={index}
       >
         <Card key={products.id} product={products} />
@@ -53,7 +53,7 @@ const BestSeller = () => {
     <div>
       <h1 className="m-4">Our Picks</h1>
       <div className="container">
-        <div className="row  mx-4">{bestSeller}</div>
+        <div className="row mx-2">{bestSeller}</div>
       </div>
     </div>
   );

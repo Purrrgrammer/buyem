@@ -1,5 +1,5 @@
 import { User } from "../model";
-
+// from user API
 export const UsersList: User[] = [
   {
     userId: 0,

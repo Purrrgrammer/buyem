@@ -48,28 +48,17 @@ const SearchBar = () => {
       </option>
     )
   );
-  /*
-  for enter
-useEffect(() => {
-  const keyDownHandler = (event) => {
-      console.log("User pressed: ", event.key);
-      if (event.key === "Enter") {
-        search();
-      }
-    };
-    document.addEventListener("keydown", keyDownHandler);
-    return () => {
-      document.removeEventListener("keydown", keyDownHandler);
-    };
-  }, []);
-  */
 
   return (
     <React.Fragment>
-      <div className="seachbar-container">
-        <button type="submit" onClick={search}>
-          SEARCH
-        </button>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          search();
+        }}
+        className="seachbar-container"
+      >
+        <button type="submit">SEARCH</button>
         <input
           name="searchval"
           id="searchval"
@@ -92,7 +81,7 @@ useEffect(() => {
             </svg>
           </button>
         )}
-      </div>
+      </form>
       <div className="mb-2">
         <select
           id="select-product"

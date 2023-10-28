@@ -22,7 +22,9 @@ const ArticlePage = () => {
         href={`/article/${el.id}`}
         className="article-content container d-flex  "
       >
-        <img src={el.thumbnail} alt="" />
+        <div>
+          <img src={el.thumbnail} alt="" />
+        </div>
         <div className="d-flex flex-column justify-content-center align-items-start p-5 text-left">
           <h6>{el.type.toUpperCase()}</h6>
           <h4>{el.header}</h4>
@@ -43,7 +45,7 @@ const ArticlePage = () => {
       <div className="d-flex justify-content-center">
         <div className="p-5">
           <h3>FILTER</h3>
-          <div className="d-flex flex-column">
+          <div className="d-flex flex-column filter-option">
             {article.map((el) => (
               <div
                 key={el.id}

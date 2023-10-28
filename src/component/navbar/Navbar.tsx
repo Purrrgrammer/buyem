@@ -3,7 +3,6 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import { setAccount, setLogout } from "../../slices/account-slice/AccountSlice";
 const Navbar = () => {
   const account = useAppSelector((state) => state.account);
-
   const dispatch = useAppDispatch();
   // which user is logged in
   useEffect(() => {

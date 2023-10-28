@@ -55,7 +55,7 @@ const accountSlice = createSlice({
           ...findItem,
           quantity: findItem.quantity
             ? findItem.quantity + parseInt(action.payload.quantity)
-            : 1,
+            : action.payload.quantity, //pr 1
         };
         const removeCurrentProduct = state.userCart.filter(
           (item: Product) => item.id !== action.payload.product.id
@@ -64,7 +64,10 @@ const accountSlice = createSlice({
         state.userCart = removeCurrentProduct;
         localStorage.setItem("userCart", JSON.stringify(state.userCart));
       } else {
-        const data = { ...action.payload.product, quantity: 1 };
+        const data = {
+          ...action.payload.product,
+          quantity: parseInt(action.payload.quantity),
+        };
         state.userCart.push(data);
         localStorage.setItem("userCart", JSON.stringify(state.userCart));
       }

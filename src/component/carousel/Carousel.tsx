@@ -37,7 +37,7 @@ const Carousel = () => {
   }, [contentIndex]);
 
   return (
-    <div className="carousel">
+    <div className="carousel ">
       <button
         className="carousel-pre"
         onClick={() => {
@@ -50,12 +50,15 @@ const Carousel = () => {
           alt=""
         />
       </button>
-      <img
-        className="carousel-img"
-        src={carouselContent[contentIndex]?.background}
-        alt={carouselContent[contentIndex]?.header}
-      />
+      <div className="carousel-img-container">
+        <img
+          className="carousel-img"
+          src={carouselContent[contentIndex]?.background}
+          alt={carouselContent[contentIndex]?.header}
+        />
+      </div>
       <div className="dots">
+        \
         {dotNumber.map((el: number) => (
           <img
             onClick={() => {
