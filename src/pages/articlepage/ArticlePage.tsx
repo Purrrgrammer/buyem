@@ -20,12 +20,12 @@ const ArticlePage = () => {
       <a
         key={el.id}
         href={`/article/${el.id}`}
-        className="article-content container d-flex  "
+        className="article-content container d-flex"
       >
-        <div>
+        <div className="article-image-container">
           <img src={el.thumbnail} alt="" />
         </div>
-        <div className="d-flex flex-column justify-content-center align-items-start p-5 text-left">
+        <div className="d-flex flex-column justify-content-center align-items-start text-left article-text-info">
           <h6>{el.type.toUpperCase()}</h6>
           <h4>{el.header}</h4>
           <div>{el.intro}</div>
@@ -42,14 +42,14 @@ const ArticlePage = () => {
       <h1 className="m-4">
         {articletype == "all" ? "ARTICLES" : articletype.toUpperCase()}
       </h1>
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center article-container">
         <div className="p-5">
           <h3>FILTER</h3>
-          <div className="d-flex flex-column filter-option">
+          <div className="d-flex flex-row justify-content-center flex-sm-column filter-option">
             {article.map((el) => (
               <div
                 key={el.id}
-                className="my-2"
+                className="my-2 mx-2 mx-sm-0"
                 onClick={articleTypeHandler(el.type)}
               >
                 {el.type.toUpperCase()}
@@ -60,7 +60,7 @@ const ArticlePage = () => {
             </div>
           </div>
         </div>
-        <div className="d-flex flex-column article">{getArticle()}</div>
+        <div className="article d-flex flex-column ">{getArticle()}</div>
       </div>
     </div>
   );

@@ -1,11 +1,13 @@
+body {
+}
 #root {
   margin: 0 auto;
   text-align: center;
   min-height: calc(100vh - 597.2px);
+  overflow: hidden;
 }
-
 .page {
-  width: 100%;
+  /* width: 100%; */
   min-height: calc(100vh - 597.2px);
 }
 nav {
@@ -24,14 +26,22 @@ nav {
 .navbar ul li a {
   transition: color 0.3s;
 }
+.active {
+  background-color: red;
+}
 .navbar ul li a:hover {
   color: lightgray;
 }
 
 .buyem {
-  scale: 3;
+  scale: 2.8;
   margin-left: 60px;
 }
+
+.link-container ul > li {
+  margin: 0 25px;
+}
+
 .products-img {
   height: 200px;
   object-fit: contain;
@@ -76,15 +86,16 @@ a {
   position: relative;
 }
 .cart-number {
-  top: -12px;
-  right: -6px;
   position: absolute;
+  top: -2px;
+  right: -6px;
   width: 17px;
   height: 17px;
   background-color: red;
   font-size: 13px;
   font-weight: bold;
   border-radius: 20px;
+  color: white;
 }
 @-webkit-keyframes sk-rotateplane {
   0% {
@@ -333,7 +344,7 @@ td {
 }
 /* account page */
 .user-image {
-  border-radius: 300px;
+  border-radius: 100%;
   width: 150px;
   height: 150px;
   object-fit: cover;
@@ -575,26 +586,28 @@ td {
   opacity: 1;
   transition: 0.5s;
 }
-.carousel-img {
-  object-fit: cover;
-  max-width: 100%;
-  height: 800px;
-}
 .carousel-img-container {
   width: 100%;
   overflow: hidden;
+  height: 800px;
+}
+.carousel-img {
+  object-fit: cover;
+  max-width: 100%;
   height: 800px;
 }
 .left-carousel {
   transform: rotate(0.5turn);
 }
 .dots {
-  bottom: 20px;
   /* xl48 */
-  left: 45%;
+  top: 90%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
 .aDot {
-  height: 20px;
+  height: 15px;
   margin: 10px 20px;
   opacity: 0.5;
 }
@@ -657,4 +670,136 @@ td {
 }
 .login-message {
   padding: 90px 0 80px 0;
+}
+/* medium screen */
+@media screen and (max-width: 768px) {
+  .buyem {
+    scale: 1.8;
+    margin-left: 30px;
+  }
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+  }
+  .link-container {
+    width: 100%;
+  }
+  .carousel-img-container {
+    height: 400px;
+  }
+  .carousel-img {
+    height: 400px;
+  }
+
+  .men,
+  .women {
+    position: absolute;
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: white;
+    font-size: 4rem;
+    left: 30%;
+    top: 20%;
+    font-weight: bold;
+  }
+
+  .cart-icon svg {
+    height: 20px;
+    width: 20px;
+  }
+
+  .carousel button img {
+    height: 30px;
+  }
+
+  * {
+    font-size: 0.8rem;
+  }
+
+  .article img {
+    object-fit: cover;
+    height: 200px;
+    width: 350px;
+    margin: auto;
+  }
+
+  .article-content {
+    display: flex;
+    flex-direction: column;
+  }
+  .article-content > div > div {
+    margin: 5px 0;
+  }
+}
+
+.article-text-info {
+  padding: 50px;
+}
+
+/* mobile */
+@media (max-width: 576px) {
+  .article-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-image-container {
+    text-align: center;
+  }
+  .article img {
+    object-fit: cover;
+    height: 200px;
+    width: 350px;
+    margin: auto;
+  }
+  .article-text-info {
+    padding: 10px;
+  }
+  .account-info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .user-image {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+  }
+
+  .account-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .account-content-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .account-select {
+    width: 100px;
+    /* padding: 10px;
+    margin: auto;
+    margin: 12px;
+    background-color: white;
+    border-radius: 10px; */
+  }
+  .account-select {
+    justify-content: center;
+    align-items: center;
+  }
+  .account-content-block {
+    width: 100%;
+  }
+  .filter-option {
+    display: flex;
+    flex-direction: row;
+  }
+  .aDot {
+    height: 10px;
+    opacity: 0.5;
+  }
+  .bar-name {
+    font-size: 0.5rem;
+  }
 }

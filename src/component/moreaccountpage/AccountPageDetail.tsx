@@ -77,7 +77,7 @@ export const AccountPageDetail = ({ account }: propType) => {
       acccontent = ordersContent;
       break;
     case "Favorites":
-      acccontent = <h5 style={{ marginTop: "70%" }}>coming soon....</h5>;
+      acccontent = <h5>coming soon....</h5>;
       break;
     default:
       acccontent = (
@@ -86,8 +86,8 @@ export const AccountPageDetail = ({ account }: propType) => {
   }
   return (
     <>
-      <div className="d-flex justify-content-center">
-        <div>
+      <div className="account-content d-flex justify-content-center">
+        <div className="account-content-bar">
           {accountpage.map((el, key) => {
             return (
               <button
@@ -101,7 +101,7 @@ export const AccountPageDetail = ({ account }: propType) => {
                 `}
               >
                 <img className="account-icon" src={el.icon}></img>
-                <div className="font-weight-bold">{el.name.toUpperCase()}</div>
+                <div className="font-weight-bold bar-name">{el.name.toUpperCase()}</div>
                 <img
                   style={{ height: "12px" }}
                   src="https://images.vexels.com/media/users/3/136983/isolated/preview/73c5e7dbef9d885a306c8927ef12f465-thick-right-arrowhead.png"
@@ -112,7 +112,7 @@ export const AccountPageDetail = ({ account }: propType) => {
           })}
         </div>
         <div className="account-display d-flex flex-row justify-content-center text-start p-3">
-          <div className="">{acccontent}</div>
+          <div className="account-content-block">{acccontent}</div>
         </div>
       </div>
     </>

@@ -37,7 +37,7 @@ const Carousel = () => {
   }, [contentIndex]);
 
   return (
-    <div className="carousel ">
+    <div className="carousel">
       <button
         className="carousel-pre"
         onClick={() => {

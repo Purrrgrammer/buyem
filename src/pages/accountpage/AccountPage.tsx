@@ -9,7 +9,7 @@ const AccountPage = () => {
     <div className="page my-3">
       <div className="myaccount">
         <h1 className="m-4">My Account</h1>
-        <div className="d-flex justify-content-center my-4 mt-5">
+        <div className="account-info d-flex justify-content-center my-4 mt-5">
           <img className="user-image" src={account.image} alt="" />
           <div className="d-flex flex-column justify-content-center align-content-center text-start mx-4">
             <div className="fw-bold"> {account.userName}</div>
