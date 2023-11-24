@@ -13,8 +13,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a href={`/`} className="buyem navbar-brand px-3 ">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
+      <a href={`/`} className="buyem text-xl navbar-brand px-3 my-4">
         BUYEM
       </a>
       <button
@@ -28,9 +28,10 @@ const Navbar = () => {
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="collapse navbar-collapse ml-5" id="navbarNav">
+      {/* toggle */}
+      <div className="collapse navbar-collapse ml-5 " id="navbarNav">
         <ul
-          className="d-flex justify-content-between align-items-center w-100 p-4 navbar-nav"
+          className="d-flex justify-content-between align-items-center w-100 p-2 navbar-nav"
           id="navnavnav"
         >
           <li className="nav-item ">

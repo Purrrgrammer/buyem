@@ -64,13 +64,13 @@ const ProductDetail = ({ displayDetail }: propType) => {
   return (
     <>
       {displayDetail && (
-        <div className="product-detail d-flex justify-content-center ">
+        <div className="product-detail d-flex justify-content-center align-items-center">
           <img src={displayDetail.image} alt={displayDetail.title} />
-          <div className="product-detai-detail d-flex flex-column justify-content-between">
+          <div className="product-detail-detail d-flex flex-column justify-content-between">
             <div>
-              <h3 className="text-start font-weight-bold">
+              <h4 className="text-start font-weight-bold">
                 {displayDetail.title}
-              </h3>
+              </h4>
               <div className="text-start text-secondary">
                 {displayDetail.category.toUpperCase()}
               </div>
@@ -83,15 +83,14 @@ const ProductDetail = ({ displayDetail }: propType) => {
               <h3>{displayDetail.price} $</h3>
             </div>
             <div className="text-start">{displayDetail.description}</div>
-            <div className="detali-btn d-flex justify-content-end">
-              <div className="detail-option d-flex align-items-center p-3">
-                <div>{"Size".toUpperCase()}</div>
+            <div className="detali-btn d-flex flex-column flex-md-row justify-content-between">
+              <div className="detail-option d-flex align-items-center justify-content-between p-3 ">
+                <div className="px-2">{"Size".toUpperCase()}</div>
                 {sizeOption}
-              </div>
-              <div className="detail-option d-flex align-items-center p-3">
-                <div>{"Quantity".toUpperCase()}</div>
+                <div className="px-2">{"Quantity".toUpperCase()}</div>
                 {quantityOption}
               </div>
+              {/* <div className="detail-option d-flex align-items-center p-3"></div> */}
               <button
                 onClick={() => {
                   dispatch(

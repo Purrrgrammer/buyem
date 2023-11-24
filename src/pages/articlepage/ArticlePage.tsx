@@ -40,7 +40,7 @@ const ArticlePage = () => {
   return (
     <div className="page">
       <h1 className="m-4">
-        {articletype == "all" ? "ARTICLES" : articletype.toUpperCase()}
+        {articletype == "all" ? "Articles" : articletype.toUpperCase()}
       </h1>
       <div className="d-flex justify-content-center article-container">
         <div className="p-5">

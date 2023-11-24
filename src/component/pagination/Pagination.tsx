@@ -55,7 +55,7 @@ const Pagination = ({
       {pages.map((page) => (
         <a
           className={`pagination
-                  ${active === page ? "active" : undefined}
+                  ${active === page ? "active text-white" : undefined}
                 `}
           key={page}
           onClick={() => {

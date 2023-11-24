@@ -77,11 +77,11 @@ export const AccountPageDetail = ({ account }: propType) => {
       acccontent = ordersContent;
       break;
     case "Favorites":
-      acccontent = <h5>coming soon....</h5>;
+      acccontent = <h5 className="text-center p-4">coming soon.... </h5>;
       break;
     default:
       acccontent = (
-        <h5 style={{ marginTop: "30%" }}>" Welcome, {account.fullname} ! "</h5>
+        <h5 className="text-center p-4">" Welcome, {account.fullname} ! "</h5>
       );
   }
   return (
@@ -101,7 +101,9 @@ export const AccountPageDetail = ({ account }: propType) => {
                 `}
               >
                 <img className="account-icon" src={el.icon}></img>
-                <div className="font-weight-bold bar-name">{el.name.toUpperCase()}</div>
+                <div className="font-weight-bold bar-name">
+                  {el.name.toUpperCase()}
+                </div>
                 <img
                   style={{ height: "12px" }}
                   src="https://images.vexels.com/media/users/3/136983/isolated/preview/73c5e7dbef9d885a306c8927ef12f465-thick-right-arrowhead.png"

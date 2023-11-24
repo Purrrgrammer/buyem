@@ -39,27 +39,32 @@ const CartCards = () => {
   }, [cart]);
   // console.log(sortedCart);
   const mapCart = sortedCart.map((el: any, index: number) => (
-    <tr className="one-card my-2" key={index}>
-      <td>
+    <div
+      className="one-card d-flex flex-column flex-md-row justify-content-between align-items-center my-2 p-4"
+      key={index}
+    >
+      <div>
         <div className="d-flex align-items-center">
-          <img className="cart-image" src={el.image} alt={el.title} />
-          <div className="ps-4 d-flex flex-column ">
-            <Link
-              to={`/product/${el.id}`}
-              style={{ textDecoration: "none", color: "black" }}
-            >
-              <h5 className="link-to-hover text-left">
-                {el?.title?.substring(0, 50)}
-              </h5>
-            </Link>
-            <div className="text-start text-black-50">
-              {el?.category.toUpperCase()}
+          <div className="d-flex align-items-center">
+            <img className="cart-image" src={el.image} alt={el.title} />
+            <div className="cart-product-link ps-4 d-flex flex-column ">
+              <Link
+                to={`/product/${el.id}`}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                <h5 className="link-to-hover text-left">
+                  {el?.title?.substring(0, 50)}
+                </h5>
+              </Link>
+              <div className="text-start text-black-50">
+                {el?.category.toUpperCase()}
+              </div>
             </div>
+            <h6 className="m-4 cart-product-price">{`$ ${el.price}`}</h6>
           </div>
         </div>
-      </td>
-      <td>{`$ ${el.price}`}</td>
-      <td>
+      </div>
+      <div className="d-flex align-items-center">
         <div className="cart-quantity">
           <button
             className="q-btn1"
@@ -77,65 +82,19 @@ const CartCards = () => {
           >
             -
           </button>
-          <div className="q-num">{el.quantity}</div>
+          <div className="q-num ">{el.quantity}</div>
         </div>
-      </td>
-      <td>$ {(el.price * el.quantity).toFixed(2)}</td>
-    </tr>
-    //       <Link
-    //   to={`/product/${el.id}`}
-    //   style={{ textDecoration: "none", color: "black" }}
-    // >
-    // </Link>
+      </div>
+      <div className="m-4">Total: $ {(el.price * el.quantity).toFixed(2)}</div>
+    </div>
   ));
 
   return (
-    <div className="d-flex justify-content-center">
-      <table className="card-card-container">
-        <tr>
-          <th>Product Detail</th>
-          <th>Price</th>
-          <th className="">Quantity</th>
-          <th>Total</th>
-        </tr>
-        {mapCart}
-      </table>
+    <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center">
+      <div className="card-card-container">{mapCart}</div>
       <OrderSummary cartTotal={cartTotal} />
     </div>
   );
 };
 
 export default CartCards;
-// {cartContent.map((el: any) => el.title)}
-
-/* OLD 
-  // let counter = {};
-  // cartContent.forEach((obj) => {
-  //   let key = JSON.stringify(obj.title);
-  //   counter[key] = (counter[key] || 0) + 1;
-  // });
-  // console.log(Object.entries(counter));
-  // const map = Object.entries(counter).map((el) => el[0]);
-
-
- const cartData = useMemo(() => {
-    const sumTotal = cartContent.reduce((acc: any, cur: any) => {
-      console.log("x");
-      return acc + cur.price;
-    }, 0);
-    const itemAmount = cartContent.reduce((acc: any, cur: any) => {
-      console.log("y");
-      const str = JSON.stringify(cur.title);
-      acc[str] = acc[str] || 0;
-      return acc;
-    }, {});
-    return { sumTotal, itemAmount };
-  }, [cartContent]);
-
-
-
-*/
-
-// console.log(cartData.sumTotal);
-// console.log(Object.keys(cartData.itemAmount).length);
-// console.log(cartData.itemAmount);

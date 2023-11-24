@@ -34,7 +34,7 @@ nav {
 }
 
 .buyem {
-  scale: 2.8;
+  scale: 2;
   margin-left: 60px;
 }
 
@@ -173,10 +173,6 @@ button[type="submit"]:active {
 /* login page */
 
 .login-container {
-  /* position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   margin: auto;
   margin-top: 11%;
   margin-bottom: 11%;
@@ -204,7 +200,6 @@ button[type="submit"]:active {
   height: 15px;
   left: 5px;
 }
-
 .login-container > button {
   height: 400px;
   border: none;
@@ -225,24 +220,28 @@ button[type="submit"]:active {
 /* cartcards component */
 .order-summary {
   background-color: white;
-  width: 20%;
+  width: 400px;
   padding: 20px;
+  margin: 20px;
   border-radius: 20px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .order-summary > * {
   margin: 20px 0;
-  font-size: 1.25rem;
 }
 .card-card-container {
-  margin: 0 30px;
-  width: 50%;
-  height: 100%;
   background-color: white;
 }
-th,
-td {
-  padding: 30px;
+.cart-product-link {
+  width: 300px;
+}
+.cart-product-price {
+  width: 100px;
+}
+.cart-image {
+  object-fit: contain;
+  height: 150px;
+  width: 150px;
 }
 .one-card {
   border-bottom: 2px solid grey;
@@ -256,18 +255,14 @@ td {
 .link-to-hover:hover {
   color: whitesmoke;
 }
-.cart-image {
-  object-fit: cover;
-  height: 100px;
-  width: 100px;
-}
+
 .cart-quantity {
   position: relative;
   width: 120px;
 }
 .q-num {
-  border-radius: 20px;
   background-color: lightgrey;
+  border-radius: 20px;
   border: none;
   padding: 10px;
   height: 45px;
@@ -339,7 +334,7 @@ td {
 }
 
 .social-icon {
-  margin: 10px 10px;
+  margin: 10px;
   height: 30px;
 }
 /* account page */
@@ -364,7 +359,7 @@ td {
 }
 .account-display {
   background-color: none;
-  width: 600px;
+  width: 500px;
   margin: 0 10px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 10px;
@@ -375,9 +370,6 @@ td {
 }
 
 .container1 {
-  width: 500px;
-  margin: 10px 5px;
-  padding: 0 5px;
 }
 .container1 > div {
   margin: 10px 0;
@@ -447,7 +439,7 @@ td {
 }
 .section-block-men {
   background-position: 10% 20%;
-  background-image: url("https://www.sz-mag.com/wp-content/uploads/2023/01/Rick-Owens_FW23-Mens_2023_Stylezeitgeist-001.jpg");
+  background-image: url("https://www.stylezeitgeist.com/wp-content/uploads/2023/01/Rick-Owens_FW23-Mens_2023_Stylezeitgeist-001-1536x1024.jpg");
 }
 .section-block-women {
   background-position: 10% 70%;
@@ -474,10 +466,10 @@ td {
   right: 15%;
   font-weight: bold;
 }
+
 .electronicsfont {
   left: 15%;
   color: white;
-
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: black;
 }
@@ -504,22 +496,24 @@ td {
   background-color: black;
   transition: 0.5s;
 }
+
 /* product detail */
 .product-detail {
-  width: 70%;
-  max-width: 70%;
   margin: auto;
+  width: 1000px;
   padding: 150px 0;
 }
-.product-detail img {
-  width: 300px;
+
+.product-detail > img {
+  width: 400px;
   margin: 0 30px;
 }
-.product-detai-detail {
+.product-detail-detail {
   background-color: none;
   padding: 20px;
+  text-wrap: wrap;
 }
-.product-detai-detail > div {
+.product-detail-detail > div {
   /* margin-bottom: 20px; */
 }
 
@@ -536,7 +530,6 @@ td {
 .detali-btn > button:active {
   background-color: rgb(50, 50, 50);
 }
-
 .detail-option {
   margin: 0 10px;
   background-color: white;
@@ -547,7 +540,6 @@ td {
   margin: 0 10px;
   /* border-right: 2px solid black; */
 }
-
 .detail-option > select {
   border: none;
   border-bottom: 2px solid black;
@@ -659,10 +651,10 @@ td {
   padding: 50px;
 }
 .article-img-container > img {
-  height: 500px;
+  height: 450px;
 }
 .article-detail-content {
-  margin: 0 350px;
+  margin: 0 10%;
 }
 
 .login-text {
@@ -672,7 +664,7 @@ td {
   padding: 90px 0 80px 0;
 }
 /* medium screen */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .buyem {
     scale: 1.8;
     margin-left: 30px;
@@ -703,7 +695,22 @@ td {
     top: 20%;
     font-weight: bold;
   }
-
+  .etc {
+    position: absolute;
+    color: transparent;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: white;
+    font-size: 2rem;
+    top: 10%;
+    right: 5%;
+    font-weight: bold;
+  }
+  .electronicsfont {
+    left: -1%;
+    color: white;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: black;
+  }
   .cart-icon svg {
     height: 20px;
     width: 20px;
@@ -743,7 +750,15 @@ td {
     display: flex;
     flex-direction: column;
   }
-
+  .article-img-container > img {
+    margin-top: 50px;
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+  }
+  .article-img-container {
+    padding: 0;
+  }
   .article-image-container {
     text-align: center;
   }
@@ -791,6 +806,15 @@ td {
   .account-content-block {
     width: 100%;
   }
+  .middle {
+    margin: 30px;
+
+    /* Center vertically and horizontally */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   .filter-option {
     display: flex;
     flex-direction: row;
@@ -801,5 +825,166 @@ td {
   }
   .bar-name {
     font-size: 0.5rem;
+  }
+}
+
+/* mobile */
+@media (max-width: 575.98px) {
+  .product-detail {
+    margin: auto;
+    width: 300px;
+    /* padding: 150px 0;
+    padding-left: 60px; */
+  }
+  .product-detail > img {
+    width: 150px;
+    object-fit: contain;
+    margin: 0 0;
+  }
+  .product-detail-detail {
+    padding: 0;
+    transform: scale(0.8);
+  }
+  .detail-option {
+    margin: 0 0;
+    background-color: white;
+    border-radius: 5px;
+  }
+  .detail-option > div {
+    padding: 0;
+    margin: 0;
+  }
+  .social-icon {
+    margin: 10px 5px;
+    height: 20px;
+  }
+  .a-card {
+    width: 300px;
+    overflow: hidden;
+    height: 300px;
+  }
+  .products-img {
+    height: 150px;
+    object-fit: contain;
+  }
+  .searchbar {
+    margin: 20px 0;
+    width: 70%;
+    padding: 5px 5px 5px 60px;
+  }
+  .seachbar-container > button[type="button"] {
+    position: absolute;
+    bottom: 37%;
+    right: 15.75%;
+    background-color: transparent;
+    border: none;
+    color: grey;
+  }
+  .seachbar-container > button[type="button"]:active {
+    color: black;
+  }
+  .seachbar-container > button[type="submit"] {
+    position: absolute;
+    bottom: 38%;
+    left: 15%;
+    background-color: transparent;
+    border: none;
+    color: grey;
+  }
+  .account-display {
+    background-color: none;
+    width: 90%;
+    margin: auto;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 10px;
+  }
+  .cart-quantity {
+    position: relative;
+    width: 100px;
+  }
+  .order-summary {
+    background-color: white;
+    width: 300px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  .q-num {
+    padding: 10px;
+    height: 35px;
+  }
+  .q-btn1 {
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    left: 0;
+    top: 0%;
+    height: 35px;
+    border: none;
+    background-color: grey;
+    border-radius: 15px 0px 0px 15px;
+  }
+  .q-btn2 {
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    right: 0px;
+    top: 0%;
+    height: 35px;
+    border: none;
+    background-color: grey;
+    border-radius: 0 15px 15px 0;
+  }
+  .login-container {
+    margin: auto;
+    margin-top: 11%;
+    margin-bottom: 11%;
+    width: calc(700px / 2);
+    height: calc(400px / 2);
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  .block-container {
+    width: 80%;
+    padding: 0 0;
+  }
+  .block {
+    margin: 15px 0;
+    margin: 15px 10px;
+    position: relative;
+  }
+  .block > input {
+    width: 100%;
+    margin: 0 10px;
+    padding: 5px 0 5px 25px;
+  }
+  .login-icon {
+    position: absolute;
+    top: 22%;
+    height: 15px;
+    left: 5%;
+  }
+  .login-container > button {
+    height: 100%;
+    border: none;
+    width: 20%;
+    background-color: gray;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .cart-product-link {
+    width: 150px;
+  }
+  .cart-product-price {
+    width: 50px;
+  }
+  .cart-image {
+    object-fit: contain;
+    height: 150px;
+    width: 150px;
   }
 }

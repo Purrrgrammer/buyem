@@ -45,7 +45,6 @@ const accountSlice = createSlice({
   initialState,
   reducers: {
     addToUserCart: (state, action) => {
-      console.log("state", state);
       console.log("action", action.payload);
       const findItem = state.userCart.find(
         (item: Product) => item.id == action.payload.product.id
