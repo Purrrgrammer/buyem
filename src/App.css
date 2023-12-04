@@ -808,7 +808,6 @@ td {
   }
   .middle {
     margin: 30px;
-
     /* Center vertically and horizontally */
     position: absolute;
     top: 50%;
@@ -987,4 +986,16 @@ td {
     height: 150px;
     width: 150px;
   }
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+  padding: 100%;
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+  color: white;
 }

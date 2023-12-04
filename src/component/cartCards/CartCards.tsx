@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import {
   addToUserCart,
-  getDataFromLocalStorage,
   removeFromUserCart,
 } from "../../slices/account-slice/AccountSlice";
 import OrderSummary from "../ordersummary/OrderSummary";
@@ -12,13 +11,13 @@ const CartCards = () => {
   const [cartTotal, setCartTotal] = useState<number>(0);
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.account.userCart);
-  useEffect(() => {
-    if (localStorage.getItem("userCart")) {
-      // console.log(JSON.parse(localStorage.getItem("userCart")));
-      dispatch(getDataFromLocalStorage());
-      // console.log(cart);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (localStorage.getItem("userCart")) {
+  //     // console.log(JSON.parse(localStorage.getItem("userCart")));
+  //     dispatch(getDataFromLocalStorage());
+  //     // console.log(cart);
+  //   }
+  // }, []);
 
   const sortedCart = [...cart].sort((a, b) => {
     const titleA = a.title.toUpperCase();
@@ -90,8 +89,15 @@ const CartCards = () => {
   ));
 
   return (
-    <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center">
-      <div className="card-card-container">{mapCart}</div>
+    <div className="d-flex flex-column flex-lg-row justify-content-center align-items-center align-items-md-start">
+      <div className="card-card-container">
+        {(cart || JSON.parse(localStorage.getItem("userCart")!)).length ===
+        0 ? (
+          <h1 className="p-4">"there are no items in the cart"</h1>
+        ) : (
+          mapCart
+        )}
+      </div>
       <OrderSummary cartTotal={cartTotal} />
     </div>
   );

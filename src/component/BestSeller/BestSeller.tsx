@@ -31,11 +31,12 @@ const BestSeller = () => {
   useEffect(() => {
     dispatch(setMock(products));
   }, [products]);
+
   const averageSales =
     globalMockData.reduce(
       (pre: number, cur: Product) => pre + cur.rating.count,
       0
-    ) / products.length;
+    ) / products.length || 0;
   // console.log(averageSales);
   const bestSeller = globalMockData
     .filter((el: Product) => el.rating!.count > averageSales)

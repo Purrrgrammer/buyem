@@ -10,7 +10,6 @@ export function Login() {
   const dispatch = useAppDispatch();
   const handleOnSubmit = () => {
     dispatch(login(loginInput));
-    // alert(JSON.stringify(loginInput));
   };
   const [loginInput, setLoginInput] = useState({
     userName: "",

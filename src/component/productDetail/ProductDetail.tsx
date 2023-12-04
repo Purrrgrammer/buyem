@@ -8,19 +8,25 @@ import {
 } from "../../base";
 import { addToUserCart } from "../../slices/account-slice/AccountSlice";
 import { Product } from "../../RTK";
-type propType = { displayDetail: Product | any };
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+type propType = { displayDetail: Product | null };
 
 const ProductDetail = ({ displayDetail }: propType) => {
+  const notify = () => toast("Wow so easy!");
+
   const dispatch = useAppDispatch();
-  const [quantitytoCart, setQuantitytoCart] = useState<number>(1);
+  const [quantitytoCart, setQuantitytoCart] = useState<number | string>(1);
   const [size, setSize] = useState("none");
-  const anyHandler = (e: any) => {
+  const anyHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSize(e.target.value);
   };
   useEffect(() => {
     console.log(quantitytoCart);
   }, [quantitytoCart]);
-  const onChangeQuantitylHandler = (e: any) => {
+  const onChangeQuantitylHandler = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
     setQuantitytoCart(e.target.value);
   };
 
@@ -93,6 +99,7 @@ const ProductDetail = ({ displayDetail }: propType) => {
               {/* <div className="detail-option d-flex align-items-center p-3"></div> */}
               <button
                 onClick={() => {
+                  notify;
                   dispatch(
                     addToUserCart({
                       product: displayDetail,
@@ -103,6 +110,7 @@ const ProductDetail = ({ displayDetail }: propType) => {
               >
                 {"ADD TO CART".toUpperCase()}
               </button>
+              <ToastContainer />
             </div>
           </div>
         </div>

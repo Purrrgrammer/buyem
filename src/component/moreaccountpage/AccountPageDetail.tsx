@@ -4,9 +4,8 @@ import { Orders, User } from "../../model";
 type propType = { account: User };
 export const AccountPageDetail = ({ account }: propType) => {
   const [content, setContent] = useState("none");
-  const [active, setActive] = useState();
-  const handleOnActive = (key: any) => {
-    // : React.ChangeEvent<HTMLInputElement>
+  const [active, setActive] = useState<number | undefined>();
+  const handleOnActive = (key: number) => {
     setActive(key);
     console.log(key);
   };
@@ -46,8 +45,8 @@ export const AccountPageDetail = ({ account }: propType) => {
     <table className="account-order-content">
       <tr>
         <th>No.</th>
-        <th>orderId</th>
-        <th>orderDate</th>{" "}
+        <th>Order ID</th>
+        <th>Date</th>{" "}
       </tr>
       {JSON.parse(localStorage.getItem("newOrders")!)?.map((el: Orders) => (
         <tr key={el.orderNumber}>
@@ -65,7 +64,6 @@ export const AccountPageDetail = ({ account }: propType) => {
         ))}
     </table>
   );
-
   switch (content) {
     case "Personal Info":
       acccontent = personalContent;

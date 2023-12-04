@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Product, User } from "../../model";
 import { UsersList } from "../../users_list";
+import { toast } from "react-toastify";
+
 import moment from "moment";
 const initialState: User = {
   loginState: false,
@@ -45,6 +47,12 @@ const accountSlice = createSlice({
   initialState,
   reducers: {
     addToUserCart: (state, action) => {
+      if (parseInt(action.payload.quantity) != 0) {
+        toast.success(
+          `${parseInt(action.payload.quantity)} items has been added to cart`
+        );
+      }
+
       console.log("action", action.payload);
       const findItem = state.userCart.find(
         (item: Product) => item.id == action.payload.product.id
@@ -112,27 +120,33 @@ const accountSlice = createSlice({
       return result;
     },
     login: (_, action) => {
-      const authorized = UsersList.some(
-        (el) =>
-          el.userName === action.payload.userName &&
-          el.userPassword === action.payload.password
-      );
-      if (authorized) {
-        const changetoThisUser = UsersList.find(
-          (el) => el.userName === action.payload.userName
+      if (action.payload.userName && action.payload.password) {
+        const authorized = UsersList.some(
+          (el) =>
+            el.userName === action.payload.userName &&
+            el.userPassword === action.payload.password
         );
-        localStorage.setItem("currentUser", JSON.stringify(changetoThisUser));
-        const result = JSON.parse(localStorage.getItem("currentUser")!);
-        // state = result;
-        return result;
+        if (authorized) {
+          const changetoThisUser = UsersList.find(
+            (el) => el.userName === action.payload.userName
+          );
+          localStorage.setItem("currentUser", JSON.stringify(changetoThisUser));
+          const result = JSON.parse(localStorage.getItem("currentUser")!);
+          // state = result;
+          return result;
+        } else {
+          alert(`Either Username or Password is incorrect, Please Login Again`);
+        }
       } else {
-        alert(`Please Login Again`);
+        alert(`Please fill both Username ID and Password`);
       }
     },
     setLogout: (state) => {
       localStorage.removeItem("currentUser");
       state === defaultState;
-      alert("you are logged out");
+      toast.info("Info Notification !", {
+        position: toast.POSITION.BOTTOM_CENTER,
+      });
       window.location.reload();
     },
     checkout: (state, action) => {
@@ -172,39 +186,51 @@ const accountSlice = createSlice({
       }
     },
     checkoutOG: (state, action) => {
-      // items = local
-      if (localStorage.getItem("newOrders")) {
-        state.orders = JSON.parse(localStorage.getItem("newOrders")!);
+      if (JSON.parse(localStorage.getItem("userCart")!).length === 0) {
+        toast.warn("Please Add Items to the Cart");
+      } else {
+        const resolveAfter5Sec = new Promise((resolve) =>
+          setTimeout(resolve, 4000)
+        );
+        if (localStorage.getItem("newOrders")?.length !== 0) {
+          toast.promise(resolveAfter5Sec, {
+            pending: "Checking Out",
+            success: "Checked Out, Thanks for your purchase !",
+            error: "Payment Rejected, Please Try Again",
+          });
+        }
+        // do this if it has items
+        if (localStorage.getItem("newOrders")) {
+          state.orders = JSON.parse(localStorage.getItem("newOrders")!);
+        }
+        const newCheckout = action.payload;
+        const duplicateOrderID = state.orders?.find(
+          (el) => el.orderId === newCheckout.orderId
+        );
+        const randomId = (maxOrderIDlength: number = 10) => {
+          return Math.random()
+            .toString(36)
+            .substring(2, maxOrderIDlength + 2);
+        };
+        const currentDate = moment().format("DD/MM/YYYY");
+        const newOrder = {
+          orderNumber:
+            state.orders?.length !== 0
+              ? state.orders![state.orders!.length - 1].orderNumber + 1
+              : 1,
+          orderId: duplicateOrderID ? randomId() : randomId(),
+          orderDate: currentDate,
+          orderInfo: newCheckout,
+        };
+        const previousOrders = state.orders!;
+        const updatedOrders = [...previousOrders, newOrder];
+        state.orders = updatedOrders;
+        localStorage.setItem("newOrders", JSON.stringify(state.orders));
+        localStorage.setItem("userCart", JSON.stringify([]));
+        setTimeout(() => {
+          window.location.reload();
+        }, 6000);
       }
-      const newCheckout = action.payload;
-      const duplicateOrderID = state.orders?.find(
-        (el) => el.orderId === newCheckout.orderId
-      );
-      const randomId = (maxOrderIDlength: number = 10) => {
-        return Math.random()
-          .toString(36)
-          .substring(2, maxOrderIDlength + 2);
-      };
-      const currentDate = moment().format("DD/MM/YYYY");
-
-      if (!localStorage.getItem("userCart")) {
-        console.log("add items in local");
-      }
-      const newOrder = {
-        orderNumber:
-          state.orders?.length !== 0
-            ? state.orders![state.orders!.length - 1].orderNumber + 1
-            : 1,
-        orderId: duplicateOrderID ? randomId() : randomId(),
-        orderDate: currentDate,
-        orderInfo: newCheckout,
-      };
-      const previousOrders = state.orders!;
-      const updatedOrders = [...previousOrders, newOrder];
-      state.orders = updatedOrders;
-      localStorage.setItem("newOrders", JSON.stringify(state.orders));
-      localStorage.removeItem("userCart");
-      window.location.reload();
     },
   },
 });

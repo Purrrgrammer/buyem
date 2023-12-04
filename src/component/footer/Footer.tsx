@@ -19,7 +19,7 @@ const Footer = () => {
                   </a>
                 ))
               : footerContent[value as keyof typeof footerContent].map(
-                  (val: any, index) => (
+                  (val: any, index: number) => (
                     <ul>
                       <li key={index}>
                         <a href="">{val}</a>

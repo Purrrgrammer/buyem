@@ -1,6 +1,10 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks";
-import { setAccount, setLogout } from "../../slices/account-slice/AccountSlice";
+import {
+  getDataFromLocalStorage,
+  setAccount,
+  setLogout,
+} from "../../slices/account-slice/AccountSlice";
 const Navbar = () => {
   const account = useAppSelector((state) => state.account);
   const dispatch = useAppDispatch();
@@ -8,7 +12,12 @@ const Navbar = () => {
   useEffect(() => {
     if (localStorage.getItem("currentUser")) {
       dispatch(setAccount());
-      console.log(account);
+      console.log(`current account`, account);
+    }
+    if (localStorage.getItem("userCart")) {
+      // console.log(JSON.parse(localStorage.getItem("userCart")));
+      dispatch(getDataFromLocalStorage());
+      // console.log(cart);
     }
   }, []);
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 // type propType = {
 //   totalPosts: number;
 //   postPerpage: number;
@@ -11,7 +11,12 @@ const Pagination = ({
   postPerPage,
   currentPage,
   setCurrentPage,
-}: any) => {
+}: {
+  postPerPage: number;
+  totalPosts: number;
+  currentPage: number;
+  setCurrentPage: Dispatch<SetStateAction<number>>;
+}) => {
   const [active, setActive] = useState<Number>(1);
   const pages: number[] = [];
   for (let i = 1; i <= Math.ceil(totalPosts / postPerPage); i++) {
